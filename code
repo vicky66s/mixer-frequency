@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+int main() {
+    // Define parameters
+    double f1 = 100e6; // 100 MHz
+    double f2 = 150e6; // 150 MHz
+    double f_IF = 50e6; // 50 MHz IF frequency
+    double A1 = 1; // Input 1 amplitude
+    double A2 = 0.5; // Input 2 amplitude
+    int num_samples = 1000; // Number of samples
+    double dt = 1e-5; // Time step
+
+    // Generate time array
+    std::vector<double> t(num_samples);
+    for (int i = 0; i < num_samples; ++i) {
+        t[i] = i * dt;
+    }
+
+    // Generate input signals
+    std::vector<double> x1(num_samples);
+    std::vector<double> x2(num_samples);
+    for (int i = 0; i < num_samples; ++i) {
+        x1[i] = A1 * cos(2 * M_PI * f1 * t[i]); // Input signal 1
+        x2[i] = A2 * cos(2 * M_PI * f2 * t[i]); // Input signal 2
+    }
+
+    // Mix the signals
+    std::vector<double> x_mix(num_samples);
+    for (int i = 0; i < num_samples; ++i) {
+        x_mix[i] = x1[i] * x2[i]; // Mixer output
+    }
+
+    // Output the results
+    for (int i = 0; i < num_samples; ++i) {
+        std::cout << "t[" << i << "] = " << t[i] << ", x1[" << i << "] = " << x1[i] << ", x2[" << i << "] = " << x2[i] << ", x_mix[" << i << "] = " << x_mix[i] << std::endl;
+    }
+
+    return 0;
+}
