@@ -1,8 +1,9 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+
 int main() {
-    // Define parameters
+    // Define parameters.
     double f1 = 100e6; // 100 MHz
     double f2 = 150e6; // 150 MHz
     double f_IF = 50e6; // 50 MHz IF frequency
@@ -10,7 +11,7 @@ int main() {
     double A2 = 0.5; // Input 2 amplitude
     int num_samples = 1000; // Number of samples
     double dt = 1e-5; // Time step
-    // Generate time array
+    // Generate time array+5
     std::vector<double> t(num_samples);
     for (int i = 0; i < num_samples; ++i) {
         t[i] = i * dt;
