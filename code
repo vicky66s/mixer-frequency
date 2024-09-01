@@ -3,7 +3,7 @@
 #include <vector>
 
 int main() {
-    // Define parameters.
+    // Define parameters.000000000000000000000000
     double f1 = 100e6; // 100 MHz
     double f2 = 150e6; // 150 MHz.
     double f_IF = 50e6; // 50 MHz IF frequency.
